@@ -29,8 +29,10 @@ const n2 = Number(display);
 if (operacao === "+") {
   setDisplay((n1 + n2).toString());
 }
+if (operacao === "-") {
+  setDisplay((n1 - n2).toString());
 }
-
+};
   return (
     <View style={styles.container}>
       <Text style={styles.display}>{display || "0"}</Text>
@@ -62,11 +64,15 @@ if (operacao === "+") {
 
           <Botao texto="3" onPress={() => adicionarNumero("3")} />
 
-          <Botao texto="C" onPress={limpar} />
+        <Botao texto="-" onPress={() => escolherOperacao("-")} />
+
       </View>
 
       <View style={styles.linha}>
         <Botao texto="0" onPress={() => adicionarNumero("0")} />
+
+        <Botao texto="C" onPress={limpar} />
+
       </View>
     </View>
   );
