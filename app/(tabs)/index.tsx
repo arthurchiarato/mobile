@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function HomeScreen() {
   const [display, setDisplay] = useState("");
+  const [primeiroNumero, setPrimeiroNumero] = useState("");
+  const [operacao, setOperacao] = useState("");
 
   function adicionarNumero(numero: string) {
     setDisplay(display + numero);
@@ -10,11 +12,27 @@ export default function HomeScreen() {
 
   function limpar() {
     setDisplay("");
+    setPrimeiroNumero("");
+    setOperacao("");
   }
+
+  function escolherOperacao(op: string) {
+    setPrimeiroNumero(display);
+    setOperacao(op);
+    setDisplay("");
+  }
+
+function calcular() {
+const n1 = Number(primeiroNumero);
+const n2 = Number(display);
+
+if (operacao === "+") {
+  setDisplay((n1 + n2).toString());
+}
+}
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.display}>{display || "0"}</Text>
 
       <View style={styles.linha}>
@@ -23,6 +41,8 @@ export default function HomeScreen() {
           <Botao texto="8" onPress={() => adicionarNumero("8")} />
 
           <Botao texto="9" onPress={() => adicionarNumero("9")} />
+
+          <Botao texto="+" onPress={() => escolherOperacao("+")} />
       </View>
 
       <View style={styles.linha}>
@@ -31,6 +51,8 @@ export default function HomeScreen() {
           <Botao texto="5" onPress={() => adicionarNumero("5")} />
 
           <Botao texto="6" onPress={() => adicionarNumero("6")} />
+
+          <Botao texto="=" onPress={calcular} />
       </View>
 
       <View style={styles.linha}>
@@ -39,12 +61,12 @@ export default function HomeScreen() {
           <Botao texto="2" onPress={() => adicionarNumero("2")} />
 
           <Botao texto="3" onPress={() => adicionarNumero("3")} />
+
+          <Botao texto="C" onPress={limpar} />
       </View>
 
       <View style={styles.linha}>
         <Botao texto="0" onPress={() => adicionarNumero("0")} />
-
-          <Botao texto="C" onPress={limpar} />
       </View>
     </View>
   );
