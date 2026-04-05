@@ -1,50 +1,30 @@
-# Welcome to your Expo app 👋
+A aplicação consiste em uma calculadora simples desenvolvida em React Native, capaz de realizar operações básicas como soma, subtração e multiplicação. O usuário pode inserir números, utilizar números decimais, apagar valores individualmente ou limpar totalmente a operação, visualizando o resultado em tempo real no visor.
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Funcionalidades 
+Entrada de números
+Soma (+)
+Subtração (-)
+Multiplicação (x)
+Uso de vírgula para números decimais
+Botão de limpar (C)
+Botão de apagar último dígito (←)
+Exibição do resultado
 
-## Get started
+Requisitos Funcionais
+O sistema deve permitir a entrada de números através de botões
+O sistema deve exibir os números digitados no visor
+O sistema deve permitir operações de soma (+)
+O sistema deve permitir operações de subtração (-)
+O sistema deve permitir operações de multiplicação (x)
+O sistema deve realizar o cálculo ao pressionar "="
+O sistema deve exibir o resultado no visor
+O sistema deve permitir limpar todos os dados com o botão "C"
+O sistema deve permitir apagar um dígito por vez (botão ←)
+O sistema deve permitir o uso de números decimais com vírgula
 
-1. Install dependencies
-
-   ```bash
-   npm install
-   ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
-   ```
-
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Requisitos Não Funcionais
+O sistema deve possuir interface simples e intuitiva
+O sistema deve ser executado em dispositivos móveis
+O sistema deve responder rapidamente aos comandos do usuário
+Os botões devem estar organizados de forma semelhante a uma calculadora real
+O sistema deve apresentar boa legibilidade no visor
