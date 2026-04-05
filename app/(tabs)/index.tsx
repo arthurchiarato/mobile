@@ -16,26 +16,48 @@ export default function HomeScreen() {
     setOperacao("");
   }
 
-  function escolherOperacao(op: string) {
-    setPrimeiroNumero(display);
-    setOperacao(op);
-    setDisplay("");
+function escolherOperacao(op: string) {
+  setPrimeiroNumero(display);
+  setOperacao(op);
+  setDisplay("");
+}
+
+function apagarUltimo() {
+  setDisplay(display.slice(0, -1));
+}
+
+function adicionarVirgula() {
+  if (!display.includes(",")) {
+    setDisplay(display + ",");
   }
+}
 
 function calcular() {
-const n1 = Number(primeiroNumero);
-const n2 = Number(display);
+  const n1 = Number(primeiroNumero.replace (",", "."));
+  const n2 = Number(display.replace (",", "."));
 
-if (operacao === "+") {
-  setDisplay((n1 + n2).toString());
+  if (operacao === "+") {
+    setDisplay((n1 + n2).toString());
+  }
+  if (operacao === "-") {
+    setDisplay((n1 - n2).toString());
+  }
+  if (operacao === "*") {
+    setDisplay((n1 * n2).toString());
+  }
 }
-if (operacao === "-") {
-  setDisplay((n1 - n2).toString());
-}
-};
   return (
     <View style={styles.container}>
       <Text style={styles.display}>{display || "0"}</Text>
+
+
+<View style={styles.linha}>
+
+  <Botao texto="←" onPress={apagarUltimo} />
+    <Botao texto="C" onPress={limpar} />
+
+</View>
+
 
       <View style={styles.linha}>
         <Botao texto="7" onPress={() => adicionarNumero("7")} />
@@ -44,7 +66,9 @@ if (operacao === "-") {
 
           <Botao texto="9" onPress={() => adicionarNumero("9")} />
 
-          <Botao texto="+" onPress={() => escolherOperacao("+")} />
+          <Botao texto="x" onPress={() => escolherOperacao("*")} />
+
+
       </View>
 
       <View style={styles.linha}>
@@ -54,7 +78,8 @@ if (operacao === "-") {
 
           <Botao texto="6" onPress={() => adicionarNumero("6")} />
 
-          <Botao texto="=" onPress={calcular} />
+        <Botao texto="-" onPress={() => escolherOperacao("-")} />
+
       </View>
 
       <View style={styles.linha}>
@@ -64,14 +89,18 @@ if (operacao === "-") {
 
           <Botao texto="3" onPress={() => adicionarNumero("3")} />
 
-        <Botao texto="-" onPress={() => escolherOperacao("-")} />
+        <Botao texto="+" onPress={() => escolherOperacao("+")} />
+
 
       </View>
 
       <View style={styles.linha}>
         <Botao texto="0" onPress={() => adicionarNumero("0")} />
 
-        <Botao texto="C" onPress={limpar} />
+        <Botao texto="," onPress={adicionarVirgula} />
+
+        <Botao texto="=" onPress={calcular} />
+
 
       </View>
     </View>
